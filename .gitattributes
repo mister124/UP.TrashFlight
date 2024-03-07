@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+UP.TrashFlight filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+Trash[[:space:]]Flight filter=lfs diff=lfs merge=lfs -text
