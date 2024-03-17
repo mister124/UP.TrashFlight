@@ -16,7 +16,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float hp = 1;
 
-    public void SetMoveSpeed(float moveSpeed) {
+    public void SetMoveSpeed(float moveSpeed)
+    {
         this.moveSpeed = moveSpeed;
 
     }
@@ -24,17 +25,22 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.down * moveSpeed * Time.deltaTime;
-        if (transform.position.y < minY) {
+        if (transform.position.y < minY)
+        {
             Destroy(gameObject);
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Weapon") {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Weapon")
+        {
             Weapon weapon = other.gameObject.GetComponent<Weapon>();
             hp -= weapon.damage;
-            if (hp <= 0) {
-                if (gameObject.tag == "Boss") {
+            if (hp <= 0)
+            {
+                if (gameObject.tag == "Boss")
+                {
                     GameManager.instance.SetGameOver();
                 }
                 Destroy(gameObject);
